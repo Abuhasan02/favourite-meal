@@ -1,19 +1,32 @@
 import React from 'react';
-import { Card,Button } from "react-bootstrap"; 
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card,Button } from "react-bootstrap";
+import "./Meal.css" 
 
 const Meal = (props) => {
-    const meal = props.meal;
+    const { strMealThumb, strMeal, strInstructions } = props.meal;
     return (
-      <div>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={meal.strMealThumb} />
+      <div className="mealStyle">
+        <Card
+          style={{
+            width: "25rem",
+            border: "1px solid grey",
+            borderRadius: "5px",
+          }}
+        >
+          <Card.Img
+            style={{ width: "25rem" }}
+            variant="top"
+            src={strMealThumb}
+          />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">See Details</Button>
+            <Card.Title style={{ fontSize: "20px", fontWeight: "bold" }}>
+              {strMeal}
+            </Card.Title>
+            <Card.Text>{strInstructions.slice(0, 100)}</Card.Text>
+            <Button style={{ marginBottom: "10px" }} variant="primary">
+              See Details
+            </Button>{" "}
           </Card.Body>
         </Card>
       </div>
