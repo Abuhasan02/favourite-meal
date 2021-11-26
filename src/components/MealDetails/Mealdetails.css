@@ -1,0 +1,8 @@
+.mealDetails{
+    margin: 20px;
+    padding: 20px;
+}
+.mealDetails img{
+    height: 20rem;
+    width: 30rem;
+}

@@ -1,10 +1,15 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card,Button } from "react-bootstrap";
+import {useNegative,Link } from "react-router-dom";
 import "./Meal.css" 
 
 const Meal = (props) => {
-    const { strMealThumb, strMeal, strInstructions } = props.meal;
+    const { idMeal,strMealThumb, strMeal, strInstructions } = props.meal;
+    // const negative = useNegative();
+    // const handleClick = () => {
+    //   negative(`/meal/${idMeal}`);
+    // }
     return (
       <div className="mealStyle">
         <Card
@@ -24,9 +29,11 @@ const Meal = (props) => {
               {strMeal}
             </Card.Title>
             <Card.Text>{strInstructions.slice(0, 100)}</Card.Text>
-            <Button style={{ marginBottom: "10px" }} variant="primary">
+            <Button  style={{ marginBottom: "10px" }} variant="primary">
               See Details
-            </Button>{" "}
+            </Button>
+            <br />
+            <Link to={`/meal/${idMeal}`}>See Details</Link>
           </Card.Body>
         </Card>
       </div>
